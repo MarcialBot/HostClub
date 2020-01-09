@@ -8,6 +8,10 @@
 </head>
 <body>
     <h1>HostClub</h1>
-    <a href="/events">Events List</a>
+    <a href="/">Home</a>
+    <a href="/events">All Events</a>
+    <h1>Event #<%= eventNum %></h1>
+    <h3><%= event.event %></h3>
+    <h3>Complete: <%= event.done ? 'Yes' : 'No' %></h3>
 </body>
 </html>

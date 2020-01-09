@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HostClub</title>
+</head>
+<body>
+    <h1>HostClub Events</h1>
+    <a href="/">Home</a>
+    <a href="/events">All Events</a>
+        <ul>
+        <% events.forEach(function(e, idx) { %>
+            <li>
+                <li>
+                    <form action="/todos/<%= idx %>?_method=DELETE"
+                        class="delete-form" method="POST">
+                        <button type="submit">X</button>
+                    </form>
+            <a href="/events/<%= idx %>"><%= e.event %></a>
+            <%= e.event %>
+                - 
+            <%= e.done ? 'Specific Date' : 'Already Happened Dawg' %>
+            </li>
+        <% }); %>
+        </ul>
+        <a href="/events/new">Add Event</a>
+</body>
+</html>

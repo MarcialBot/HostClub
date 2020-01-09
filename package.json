@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/KhrisMarcial/HostClub/issues"
   },
-  "homepage": "https://github.com/KhrisMarcial/HostClub#readme"
+  "homepage": "https://github.com/KhrisMarcial/HostClub#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.8.5"
+  }
 }
