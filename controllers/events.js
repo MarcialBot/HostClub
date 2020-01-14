@@ -5,7 +5,7 @@ module.exports = {
     show,
     new: newEvent,
     create,
-    deleteEvent
+    delete: deleteEvent
 };
 
 function index(req, res) {
