@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
     title: String,
-    date: date,
-    invites: [String]
+    date: Date,
+    attendees: [String]
 });
 
 module.exports = mongoose.model('Event', eventSchema);
