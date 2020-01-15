@@ -6,8 +6,10 @@ const userSchema = new mongoose.Schema({
     name: String,
     email: String,
     avatarURL: String,
-    events: String,
+    events: [String],
     googleId: String
 }, {
     timestamps: true
 });
+
+module.exports = mongoose.model("User", userSchema);

@@ -8,19 +8,20 @@
     <title>HostClub</title>
 </head>
 <body>
-    <h1>HostClub Events</h1>
+    <h1>HostClub</h1>
     <a href="/">Home</a>
     <a href="/events">All Events</a>
         <ul>
-        <% events.forEach(function(e, idx) { %>
+        <% events.forEach(function(event, idx) { %>
             <li>
-                <form action="/events/<%= idx %>?_method=DELETE"
+                <form action="/events/<%= event._id %>?_method=DELETE"
                     class="delete-form" method="POST">
                     <button type="submit">X</button>
-                </form>
-            <a href="/events/<%= idx %>"><%= e.event %></a>
-                - 
-            <%= e.done ? 'Specific Date' : 'Already Happened Dawg' %>
+                </form> Title -
+            <a href="/events/<%= event._id %>">
+                <%= event.title %></a>
+                - Supplies - 
+            <%= event.supplies %>
             </li>
         <% }); %>
         </ul>

@@ -11,8 +11,14 @@
     <h1>HostClub</h1>
     <a href="/">Home</a>
     <a href="/events">All Events</a>
-    <h1>Event #<%= eventNum %></h1>
-    <h3><%= event.event %></h3>
-    <h3>Complete: <%= event.done ? 'Yes' : 'No' %></h3>
+    <li>
+        <label>Title:</label>
+        <%= event.title %>
+        <label>Supplies:</label>
+        <%= event.supplies %>
+        <label>Date:</label>
+        <%= event.date %>
+    </li>
+
 </body>
 </html>
