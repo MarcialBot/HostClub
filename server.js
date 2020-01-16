@@ -1,6 +1,7 @@
 const express = require('express');
 const indexRouter = require('./routes/index');
 const eventsRouter = require('./routes/events');
+const suppliesRouter = require('./routes/supplies');
 const morgan = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
@@ -34,6 +35,7 @@ app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
+app.use('/supplies', suppliesRouter);
 
 app.listen(3000, function() {
     console.log('Express is listening on port 3000');

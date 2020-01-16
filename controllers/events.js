@@ -1,4 +1,5 @@
 const Event  = require('../models/event');
+const Supply = require('../models/supply');
 
 module.exports = {
     index,
@@ -15,8 +16,13 @@ function index(req, res) {
 };
 
 function show(req, res) {
-    Event.findById(req.params.id, function(err, event) {
-        res.render('events/show', { title: 'Event Details', event });
+    Event.findById(req.params.id).populate('supplies').exec(function(err, event) {
+        Supply.find(
+            {_id: {$nin: event.supplies}},
+            function(err, supplies) {
+                console.log(supplies);
+        res.render('events/show', { title: 'Event Details', event, supplies });
+        });
     });
 };
 
@@ -27,13 +33,10 @@ function newEvent(req, res) {
 function create(req, res) {
     const event = new Event(req.body);
 
-    req.body.supplies = req.body.supplies.replace(/\s*,\s*/g, ',');
-    if(req.body.supplies) req.body.supplies = req.body.supplies.split(',');
-
     event.save(function(err) {
         if(err) return res.render('events/new');
         console.log(event);
-        res.redirect(`/events/${event._id}`)
+        res.redirect(`/events/${event._id}`);
     })
 };
 
