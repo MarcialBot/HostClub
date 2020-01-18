@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    <p>
+<select>
+    <% supplies.forEach(function(supplies) { %>
+        <option><%= supplies.name %></option>
+      <% }) %>
+</select>
+</p>    
     <form id="add-supply-form" action="/supplies" method="POST">
     <label>Name:</label>
     <input type="text" name="name">

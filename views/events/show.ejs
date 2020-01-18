@@ -11,15 +11,27 @@
     <h1>HostClub</h1>
     <a href="/">Home</a>
     <a href="/events">All Events</a>
+    <a href="/supplies/new">Add Supplies</a>
     <li>
         <label>Title:</label>
         <%= event.title %>
-        <label>Supplies:</label>
-        <%= event.supplies %>
+        <ul>
+            <%- event.supplies.map(p => 
+                `<li>${p.name} <small>${p.type}</small></li>`
+            ).join('') %>
+        </ul>
+
+        <form id="add-per-to-cast" action="/events/<%= event._id%>/supplies" method="POST">
+            <select name="supplyId">
+                <%- supplies.map(p => 
+                `<option value="${s._id}">${s.name}</option>`
+                ).join('') %>
+            </select>
+            <button type="submit">Add to Supplies</button>
+        </form>
+
         <label>Date:</label>
         <%= event.date %>
-        <label>Supplies:</label>
-        <%= event.supples %>
     </li>
 
 </body>

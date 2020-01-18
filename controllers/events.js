@@ -51,3 +51,4 @@ function deleteEvent(req, res) {
         res.redirect('/events');
     });
 };
+
