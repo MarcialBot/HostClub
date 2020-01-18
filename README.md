@@ -4,7 +4,7 @@
 
 ## Screenshots: 
 
-![Events Page](/public/images/AllEvents.png?raw=true "All Events Page")
+![AllEvents](https://user-images.githubusercontent.com/27530602/72666564-a52f8080-39e1-11ea-93ef-18a6bd8725c4.png)
 
 ## Getting Started: https://hostclub.herokuapp.com/
 
