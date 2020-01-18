@@ -1,9 +1,15 @@
-HostClub
+# HostClub
 
-Technologies Used: Google Oauth, Express, Javascript, Node.js
+## Technologies Used: Google Oauth, Express, Javascript, Node.js
 
-Screenshots:
+## Screenshots: 
 
-Getting Started: https://hostclub.herokuapp.com/
+![Events Page](/public/images/AllEvents.png?raw=true "All Events Page")
 
-Next Steps: Create more functionality for users based on user type
+## Getting Started: https://hostclub.herokuapp.com/
+
+## Next Steps: 
+
+* Create more functionality for users based on user type
+* Create improved UX styling
+* User flow improvements
