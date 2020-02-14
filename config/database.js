@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const localConnection = 'mongodb://localhost/events';
 dotenv.config();
 
-mongoose.connect(process.env.DATABASE_URL, {
+mongoose.connect(localConnection || process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true

@@ -38,7 +38,7 @@ app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
-app.use('/', suppliesRouter);
+app.use('/supplies', suppliesRouter);
 
 app.listen(3000, function() {
     console.log('Express is listening on port 3000');

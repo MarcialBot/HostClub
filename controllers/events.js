@@ -6,7 +6,8 @@ module.exports = {
     show,
     newEvent,
     create,
-    delete: deleteEvent
+    delete: deleteEvent,
+    addSupplies
 };
 
 function index(req, res) {
@@ -27,7 +28,7 @@ function show(req, res) {
 };
 
 function newEvent(req, res) {
-    res.render('events/new');
+    res.render('events/new', {title: 'Add New Event'});
 };
 
 function create(req, res) {
@@ -36,12 +37,13 @@ function create(req, res) {
     event.save(function(err) {
         if(err) return res.render('events/new');
         console.log(event);
-        res.redirect(`/events/${event._id}`);
+        res.redirect(`/events/${event._id}`,);
     })
 };
 
 function deleteEvent(req, res) {
     console.log(req.params.id)
+    req.params.id
     Event.findByIdAndRemove(req.params.id, (err, event) => {
         if(err) return res.status(500).send(err);
         const response = {
@@ -52,3 +54,12 @@ function deleteEvent(req, res) {
     });
 };
 
+function addSupplies (req, res) {
+    console.log(supplyId)
+    Event.findById(req.params.id, function(err, event){
+        event.supplies.push(req.body.supplyId);
+        event.save(function(err){
+            res.redirect('/events/${event._id}');
+        });
+    });
+};

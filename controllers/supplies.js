@@ -6,8 +6,7 @@ module.exports = {
     show,
     newSupply,
     create,
-    deleteSupply,
-    addSupplies
+    deleteSupply
 };
 
 function index (req, res){
@@ -33,9 +32,12 @@ function newSupply (req, res) {
 }
 
 function create (req, res) {
-    Supply.create(req.body, function(err, supply) {
-        res.redirect('/supplies/new');
-        console.log(req.body);
+    console.log("This is the body: ",req.body)
+    const supply = new Supply(req.body)
+    supply.save(function(err) {
+        if(err) return res.render('supplies/new');
+        console.log("EEEEEHHHHHHH");
+        res.redirect(`/supplies/${supply._id}`);
     })
 }
 
@@ -51,11 +53,3 @@ function deleteSupply (req, res) {
     });
 }
 
-function addSupplies (req, res) {
-    Event.findById(req.params.id, function(err, Event){
-        event.supplies.push(req.body.supplyId);
-        event.save(function(err){
-            res.redirect('/events/${event._id}');
-        });
-    });
-}
