@@ -40,6 +40,6 @@ app.use('/', indexRouter);
 app.use('/events', eventsRouter);
 app.use('/supplies', suppliesRouter);
 
-app.listen(3000, function() {
+app.listen(port, function() {
     console.log('Express is listening on port 3000');
 });
