@@ -7,7 +7,6 @@ module.exports = {
     newEvent,
     create,
     delete: deleteEvent,
-    addSupplies
 };
 
 function index(req, res) {
@@ -17,12 +16,14 @@ function index(req, res) {
 };
 
 function show(req, res) {
-    Event.findById(req.params.id).populate('supplies').exec(function(err, event) {
+    Event.findById(req.params.id)
+    .populate('supplies').exec(function(err, event) {
         Supply.find(
             {_id: {$nin: event.supplies}},
             function(err, supplies) {
                 console.log(supplies);
-        res.render('events/show', { title: 'Event Details', event, supplies });
+                res.render('events/show', {
+                     title: 'Event Details', event, supplies });
         });
     });
 };
@@ -32,12 +33,15 @@ function newEvent(req, res) {
 };
 
 function create(req, res) {
+    req.body.nowShowing = !!req.body.nowShowing;
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+      }
     const event = new Event(req.body);
-
-    event.save(function(err) {
-        if(err) return res.render('events/new');
-        console.log(event);
-        res.redirect(`/events/${event._id}`,);
+        event.save(function(err) {
+            if(err) return res.render('events/new');
+            console.log(event);
+            res.redirect(`/events/${event._id}`,);
     })
 };
 
@@ -51,15 +55,5 @@ function deleteEvent(req, res) {
             id: event._id
         };
         res.redirect('/events');
-    });
-};
-
-function addSupplies (req, res) {
-    console.log(supplyId)
-    Event.findById(req.params.id, function(err, event){
-        event.supplies.push(req.body.supplyId);
-        event.save(function(err){
-            res.redirect('/events/${event._id}');
-        });
     });
 };

@@ -9,7 +9,7 @@ const eventSchema = new Schema({
     startDate: Date,
     endDate: Date,
     attendees: [{type: Schema.Types.ObjectId, ref: 'User'}],
-    supplies: [{type: Schema.Types.ObjectId, ref: Supply}],
+    supplies: [{type: Schema.Types.ObjectId, ref: 'Supply'}],
 }, {
     timestamps: true
 });

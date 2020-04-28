@@ -6,6 +6,5 @@ router.get('/new', eventsCtrl.newEvent);
 router.get('/:id', eventsCtrl.show);
 router.post('/', eventsCtrl.create);
 router.delete('/:id', eventsCtrl.delete);
-router.post('/events/:id/supplies/:supply_id', eventsCtrl.addSupplies);
 
 module.exports = router;

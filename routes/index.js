@@ -3,7 +3,9 @@ const passport = require('passport');
 
 router.get('/auth/google', passport.authenticate(
     'google',
-    { scope: ['profile', 'email']}
+    { 
+        scope: ['profile', 'email'],
+    }
 ));
 
 router.get('/oauth2callback', passport.authenticate(

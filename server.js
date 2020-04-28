@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
+var path = require('path');
 const port = process.env.PORT || 3000;
 
 
@@ -17,6 +18,7 @@ const suppliesRouter = require('./routes/supplies');
 
 const app = express();
 
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 
@@ -38,8 +40,8 @@ app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
-app.use('/supplies', suppliesRouter);
+app.use('/', suppliesRouter); 
 
 app.listen(port, function() {
-    console.log('Express is listening on port 3000');
+    console.log(`Express is listening on port ${port}`);
 });

@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const supplySchema = new Schema ({
-    name: String,
+    name: {type: String, required: true, unique: true},
     type: {
         type: String,
-        enum: ['Drink', 'Food', 'Dessert', 'Other']
+        enum: ['Drink', 'Food', 'Dessert', 'Other'],
     }
 });
 

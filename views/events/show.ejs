@@ -1,38 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/public/css/style.css">
-    <title>HostClub</title>
-</head>
-<body>
-    <h1>HostClub</h1>
-    <a href="/">Home</a>
-    <a href="/events">All Events</a>
-    <a href="/supplies/new">Add Supplies</a>
+<%- include('../partials/header') %>
     <li>
         <label>Title:</label>
         <%= event.title %>
-        <ul>
-            <%- event.supplies.map(p => 
-                `<li>${p.name} <small>${p.type}</small></li>`
-            ).join('') %>
-        </ul>
-
-        <form id="add-per-to-cast" action="/events/<%= event._id%>/supplies" method="POST">
-            <select name="supplyId">
-                <%- supplies.map(s => 
-                `<option value="${s._id}">${s.name}</option>`
-                ).join('') %>
-            </select>
-            <button type="submit">Add to Supplies</button>
-        </form>
-
         <label>Date:</label>
         <%= event.date %>
     </li>
 
-</body>
-</html>
+    <%- include('../partials/footer') %>

@@ -6,23 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel='stylesheet' href='/public/css/style.css' />
-    <title><%= title %></title>
 </head>
 <body>
     <div class=="navbar-fixed">
         <nav>
             <div class="nav-wrapper purple">
-                <ul class="right">
-                    <a href="/events">Events List</a>
-                    <ul class="right">
-                        <li>
-                        <% if (user) { %>
-                            <a href="/logout">trending_flat</i>Log Out</a>
-                        <% } else { %>
-                            <a href="/auth/google"></i>Login with Google</a>
-                        <% } %>
-                        </li>
-                    </ul>
+                <ul class="left row">
+                    <a href="/events/new" <%- title === 'Add Event' ? 'class="active"' : '' %>>ADD EVENT</a>
+                    <a href="/events" <%- title === 'All Events' ? 'class="active"' : '' %>>ALL EVENTS</a>
                 </ul>
             </div>
         </nav>

@@ -1,11 +1,9 @@
 const router = require('express').Router();
 const suppliesCtrl = require('../controllers/supplies');
 
-router.get('/', suppliesCtrl.index);
-router.get('/new', suppliesCtrl.newSupply);
-router.post('/', suppliesCtrl.create);
-router.get('/:id', suppliesCtrl.show);
-router.delete('/:id', suppliesCtrl.deleteSupply);
+router.get('/supplies/new', suppliesCtrl.new);
+router.post('/supplies', suppliesCtrl.create);
+router.post('/events/:id/supplies', suppliesCtrl.addToSupplies);
 
 
 

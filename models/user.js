@@ -7,10 +7,7 @@ const userSchema = new mongoose.Schema({
     name: String,
     email: String,
     avatarURL: String,
-    events: [{type: Schema.Types.ObjectId, ref: 'Event'}],
-    supplies: [{type: Schema.Types.ObjectId, ref: 'Supply'}],
     googleId: String,
-    admin: { type: Boolean, default: false}
 }, {
     timestamps: true
 });

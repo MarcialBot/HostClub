@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/public/css/style.css">
-    <title><% title %></title>
-</head>
-<body>>
-    <h1><%= title %></h1>
-    <a href="/">Home</a>
-    <a href="/events">All Events</a>
+<%- include('../partials/header') %>
         <ul>
         <% events.forEach(function(event, idx) { %>
             <li>
@@ -20,11 +8,8 @@
                 </form> Title -
             <a href="/events/<%= event._id %>">
                 <%= event.title %></a>
-                - Supplies - 
-                <%= event.supplies %>
             </li>
         <% }); %>
         </ul>
         <a href="/events/new">Add Event</a>
-</body>
-</html>
+        <%- include('../partials/footer') %>
